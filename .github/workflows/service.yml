@@ -13,8 +13,7 @@ on:
         default: "cmd/server/main.go"
       sqlc:
         required: false
-        type: string
-        default: "false"
+        type: boolean
       test_functional_enabled:
         required: false
         type: string
