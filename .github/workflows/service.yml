@@ -54,9 +54,10 @@ jobs:
           git config --global url."https://${USER}:${TOKEN}@github.com/setare/".insteadOf "https://github.com/setare/"
 
       - name: Install SQLC
-        # if: ${{ inputs.sqlc == 'true'}}
+        if: ${{ inputs.sqlc }} == 'true'
         run: |
           go install github.com/kyleconroy/sqlc/cmd/sqlc@${{ inputs.sqlc_version }}
+          sqlc version
 
       - uses: actions/cache@v3
         with:
@@ -197,7 +198,7 @@ jobs:
         run: |
           go mod download
 
-      - uses: setare/go-gosec-action@v0.1.0
+      - uses: setare/go-gosec-action@v0.2.0
 
   unit-tests:
     name: Unit tests
