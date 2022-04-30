@@ -50,7 +50,7 @@ jobs:
           git config --global url."https://${USER}:${TOKEN}@github.com/setare/".insteadOf "https://github.com/setare/"
 
       - name: Install SQLC
-        if: ${{ inputs.sqlc == 'true' }}
+        if: ${{ inputs.sqlc == 'true'}}
         run: |
           go install github.com/kyleconroy/sqlc/cmd/sqlc@latest
 
