@@ -300,15 +300,7 @@ jobs:
       - name: Docker logs
         if: ${{ failure() }}
         run: |
-          docker-compose -f test/docker-compose.yml logs > docker.log
-      
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: Container logs
-          path: docker.log
-          retention-days: 7
-
+          docker-compose -f test/docker-compose.yaml logs
 
       - name: Stop docker dependencies
         if: ${{ always() }}
